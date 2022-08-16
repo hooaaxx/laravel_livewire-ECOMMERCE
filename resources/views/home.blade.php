@@ -10,7 +10,7 @@
             {{-- carousel --}}
             <div class="sliderAx h-auto">
                 <div id="slider-1" class="container">
-                    <div class="bg-cover bg-center  h-auto text-white py-24 px-10 object-fill" style="background-image: url({{ url('storage/photos_thumb/background1.jpg') }})">
+                    <div class="bg-cover bg-center  h-auto text-white py-24 px-10 object-fill" style="background-image: url({{ url('images/background1.jpg') }})">
                         
                         <div class="md:w-1/2">
                             <p class="font-bold text-sm uppercase">Products</p>
@@ -23,7 +23,7 @@
                 </div>
           
                 <div id="slider-2" class="container mx-auto">
-                    <div class="bg-cover bg-center  h-auto text-white py-24 px-10 object-fill" style="background-image: url({{ url('storage/products/UNl4kma06201lUIzApyTSKKMnZgTpAwh2EkAbRTG.jpg') }})">
+                    <div class="bg-cover bg-center  h-auto text-white py-24 px-10 object-fill" style="background-image: url({{ url('images/jokerblack.jpg') }})">
                  
                         <p class="font-bold text-sm uppercase">Sample</p>
                         <p class="text-3xl font-bold">Best Seller</p>

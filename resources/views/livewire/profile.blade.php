@@ -25,10 +25,10 @@
             </div>
         </div>
         <div class="w-full h-[250px]">
-            <img src="{{ url('storage/photos_thumb/' . auth()->user()->profile_img) }}" class="w-full h-full rounded-tl-lg rounded-tr-lg" />
+            <img src="{{ url('default_image/' . auth()->user()->profile_img) }}" class="w-full h-full rounded-tl-lg rounded-tr-lg" />
         </div>
         <div class="flex flex-col items-center -mt-20">
-            <img src="{{ url('storage/photos_thumb/' . auth()->user()->profile_img) }}" class="w-40 border-4 border-white rounded-full" />
+            <img src="{{ url('default_image/' . auth()->user()->profile_img) }}" class="w-40 border-4 border-white rounded-full" />
             <div class="flex items-center space-x-2 mt-2">
                 <p class="text-2xl">{{ auth()->user()->name }}</p>
 
