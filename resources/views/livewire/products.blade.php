@@ -113,7 +113,11 @@
                             <tr class="bg-gray-100 hover:bg-primary hover:bg-opacity-20 transition duration-200">
                                 <td class="py-3 pl-2">
                                     @if (!empty($product->product_img))
-                                        <img width="100px" src="{{ url('storage/products_thumb/'. $product->product_img) }}" />
+                                        @if ($product->product_img == "default.png")
+                                            <img width="100px" src="{{ url('images/'. $product->product_img) }}" />
+                                        @else
+                                            <img width="100px" src="{{ url('storage/products_thumb/'. $product->product_img) }}" />
+                                        @endif
                                     @else
                                         No profile image available!
                                     @endif

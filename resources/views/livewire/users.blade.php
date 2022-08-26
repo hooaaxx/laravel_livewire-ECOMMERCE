@@ -110,7 +110,11 @@
                             <tr class="bg-gray-100 hover:bg-primary hover:bg-opacity-20 transition duration-200">
                                 <td class="py-3 pl-2">
                                     @if (!empty($user->profile_img))
-                                        <img width="100px" src="{{ url('storage/photos_thumb/'. $user->profile_img) }}" />
+                                        @if ($user->profile_img == "default.png")
+                                            <img width="100px" src="{{ url('default_image/'. $user->profile_img) }}" />
+                                        @else
+                                            <img width="100px" src="{{ url('storage/photos_thumb/'. $user->profile_img) }}" />
+                                        @endif
                                     @else
                                         No profile image available!
                                     @endif

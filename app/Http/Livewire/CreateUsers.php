@@ -41,12 +41,13 @@ class CreateUsers extends Component
     protected $rules = [
         'role_id' => 'required',
         'name' => 'required',
-        'email' => 'required|email|unique:users',
+        'email' => 'required|email',
         'password' => 'required|min:8|max:20',
     ];
     
     public function updated($propertyName)
     {
+        
         if(!empty($this->profileImage)){
             $this->validateOnly($propertyName, [
                 'role_id' => 'required',
@@ -55,6 +56,24 @@ class CreateUsers extends Component
                 'email' => 'required|email|unique:users',
                 'password' => 'required|min:8|max:20',
             ]);
+        }elseif(User::where('email', '=', $this->email)->exists()){
+            $modelUpdate = User::findOrFail($this->modelId);
+
+            if($this->email === $modelUpdate->email){
+                $this->validateOnly($propertyName, [
+                    'role_id' => 'required',
+                    'name' => 'required',
+                    'email' => 'required|email',
+                    'password' => 'required|min:8|max:20',
+                ]);
+            }else{
+                $this->validateOnly($propertyName, [
+                    'role_id' => 'required',
+                    'name' => 'required',
+                    'email' => 'required|email|unique:users',
+                    'password' => 'required|min:8|max:20',
+                ]);
+            }
         }else{
             $this->validateOnly($propertyName);
         }
@@ -96,6 +115,16 @@ class CreateUsers extends Component
 
         if ($this->modelId) {
             $modelUpdate = User::findOrFail($this->modelId);
+
+            if($modelUpdate->email === $this->email){
+                $this->validate([
+                    'email' => 'required|email',
+                ]);
+            }else{
+                $this->validate([
+                    'email' => 'required|email|unique:users',
+                ]);
+            }
 
             $profileImageUp = $modelUpdate->profile_img;
 

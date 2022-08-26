@@ -68,7 +68,7 @@
                             class="flex items-center"
                         >
                             <span class="mr-2 text-sm">&bull;</span>
-                            <span class="overflow-ellipsis">Meals</span>
+                            <span class="overflow-ellipsis">Shirt</span>
                         </a>
                     </li>
                     <!-- end::Submenu link -->
@@ -80,7 +80,7 @@
                             class="flex items-center"
                         >
                             <span class="mr-2 text-sm">&bull;</span>
-                            <span class="overflow-ellipsis">Drinks</span>
+                            <span class="overflow-ellipsis">Etc.</span>
                         </a>
                     </li>
                     <!-- end::Submenu link -->
