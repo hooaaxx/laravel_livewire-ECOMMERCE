@@ -159,7 +159,7 @@
                                     @endif
                                 </td>
                                 <td class="py-3 pl-2">
-                                    {{ $user->created_at }}
+                                    {{ $user->created_at->format('d M Y - H:i a') }}
                                 </td>
                                 <td class="py-3 pl-2 items-center space-x-2">
                                     <button

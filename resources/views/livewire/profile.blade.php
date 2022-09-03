@@ -25,10 +25,25 @@
             </div>
         </div>
         <div class="w-full h-[250px]">
-            <img src="{{ url('default_image/' . auth()->user()->profile_img) }}" class="w-full h-full rounded-tl-lg rounded-tr-lg" />
+            @if (!empty(auth()->user()->profile_img))
+                @if (auth()->user()->profile_img === "default.png")
+                    <img src="{{ url('default_image/' . auth()->user()->profile_img) }}" class="w-full h-full rounded-tl-lg rounded-tr-lg" />
+                @else
+                    <img src="{{ url('storage/photos_thumb/' . auth()->user()->profile_img) }}" class="w-full h-full rounded-tl-lg rounded-tr-lg" />
+                @endif
+            @else
+            @endif
         </div>
         <div class="flex flex-col items-center -mt-20">
-            <img src="{{ url('default_image/' . auth()->user()->profile_img) }}" class="w-40 border-4 border-white rounded-full" />
+            @if (!empty(auth()->user()->profile_img))
+                @if (auth()->user()->profile_img === "default.png")
+                    <img src="{{ url('default_image/' . auth()->user()->profile_img) }}" class="w-40 border-4 border-white rounded-full" />
+                @else
+                    <img src="{{ url('storage/photos_thumb/' . auth()->user()->profile_img) }}" class="w-50 rounded-full max-w-full h-auto align-middle border-none" />
+                @endif
+            @else
+                No profile image available!
+            @endif
             <div class="flex items-center space-x-2 mt-2">
                 <p class="text-2xl">{{ auth()->user()->name }}</p>
 

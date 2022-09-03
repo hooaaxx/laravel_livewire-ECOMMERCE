@@ -44,10 +44,9 @@
         <span class="text-gray-700 font-bold">
             Profile Image
         </span>
-        {{-- @if ($profileImage)
-            Photo Preview:
+        @if ($profileImage)
             <img width="100px" src="{{ $profileImage->temporaryUrl() }}">
-        @endif --}}
+        @endif
         <input
             type="file" 
             id="upload{{ $iteration }}"

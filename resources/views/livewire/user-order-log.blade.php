@@ -33,7 +33,7 @@
             <div class="flex flex-col mt-8">
                 <!-- start::Advance Table Manage Icons -->
                 <div class="bg-white rounded-lg px-8 py-6 overflow-x-scroll custom-scrollbar mb-12">
-                    <h4 class="text-xl font-semibold">Order asd</h4>
+                    <h4 class="text-xl font-semibold">Order</h4>
                     <!-- start:: Basic Sign In Modal -->
                     {{-- {{ $OrderId }} --}}
                     <!-- end:: Basic Sign In Modal -->
