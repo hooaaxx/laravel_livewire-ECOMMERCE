@@ -57,15 +57,24 @@ class CreateUsers extends Component
                 'password' => 'required|min:8|max:20',
             ]);
         }elseif(User::where('email', '=', $this->email)->exists()){
-            $modelUpdate = User::findOrFail($this->modelId);
+            if($this->modelId){
+                $modelUpdate = User::findOrFail($this->modelId);
 
-            if($this->email === $modelUpdate->email){
-                $this->validateOnly($propertyName, [
-                    'role_id' => 'required',
-                    'name' => 'required',
-                    'email' => 'required|email',
-                    'password' => 'required|min:8|max:20',
-                ]);
+                if($this->email === $modelUpdate->email){
+                    $this->validateOnly($propertyName, [
+                        'role_id' => 'required',
+                        'name' => 'required',
+                        'email' => 'required|email',
+                        'password' => 'required|min:8|max:20',
+                    ]);
+                }else{
+                    $this->validateOnly($propertyName, [
+                        'role_id' => 'required',
+                        'name' => 'required',
+                        'email' => 'required|email|unique:users',
+                        'password' => 'required|min:8|max:20',
+                    ]);
+                }
             }else{
                 $this->validateOnly($propertyName, [
                     'role_id' => 'required',
@@ -74,6 +83,7 @@ class CreateUsers extends Component
                     'password' => 'required|min:8|max:20',
                 ]);
             }
+
         }else{
             $this->validateOnly($propertyName);
         }
@@ -157,6 +167,12 @@ class CreateUsers extends Component
 
             $modelUpdate->update($data);
         } else {
+            if(!$this->modelId){
+                $this->validate([
+                    'email' => 'required|email|unique:users',
+                ]);
+            }
+
             User::create($data);
         }
 
