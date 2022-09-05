@@ -1,6 +1,6 @@
 <div>
     @if (!Cart::session(auth()->user()->id)->isEmpty())
-    <!-- start::Messages -->
+    <!-- start::Messagesss -->
     <div
         class="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4"
     >
