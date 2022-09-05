@@ -8,10 +8,11 @@ use Illuminate\Support\Facades\Hash;
 use Livewire\WithFileUploads;
 use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Storage;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class ProfileSettings extends Component
 {
-    use WithFileUploads;
+    use WithFileUploads, LivewireAlert;
 
     public $name;
     public $email;
@@ -162,6 +163,16 @@ class ProfileSettings extends Component
         }
 
         $user->update($data);
+
+        $this->alert('success', 'Save Successfully!', [
+            'position' => 'top-end',
+            'timer' => '10000',
+            'toast' => true,
+            'showConfirmButton' => true,
+            'onConfirmed' => '',
+            'confirmButtonText' => 'Close',
+            'timerProgressBar' => true,
+        ]);
 
         $this->dispatchBrowserEvent('close-modal');
         $this->emit('refreshParent');

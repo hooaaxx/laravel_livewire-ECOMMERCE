@@ -5,9 +5,11 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class ChangePassword extends Component
 {
+    use LivewireAlert;
     public $password;
     public $password_confirmation;
     public $current_password;
@@ -43,6 +45,15 @@ class ChangePassword extends Component
             ]);
 
             $user->update($data);
+            $this->alert('success', 'Change Password Successfully!', [
+                'position' => 'top-end',
+                'timer' => '10000',
+                'toast' => true,
+                'showConfirmButton' => true,
+                'onConfirmed' => '',
+                'confirmButtonText' => 'Close',
+                'timerProgressBar' => true,
+            ]);
             $this->emit('refreshParent');
             $this->dispatchBrowserEvent('close-modal');
         }

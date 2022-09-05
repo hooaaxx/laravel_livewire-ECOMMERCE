@@ -4,10 +4,12 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Product;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Cart;
 
 class ShowProduct extends Component
 {
+    use LivewireAlert;
     public $products;
     public $counter;
 
@@ -55,6 +57,17 @@ class ShowProduct extends Component
             'attributes' => array(),
             'associatedModel' => $productDetails
         ));
+
+        $this->alert('success', 'Added to cart', [
+            'position' => 'center',
+            'timer' => '10000',
+            'toast' => true,
+            'showConfirmButton' => true,
+            'onConfirmed' => '',
+            'confirmButtonText' => 'Close',
+            'timerProgressBar' => true,
+            'width' => '250',
+        ]);
         
         $this->emit('refreshProducts');
     }

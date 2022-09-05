@@ -8,9 +8,12 @@ use Cart;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Product;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class CheckOut extends Component
 {
+    use LivewireAlert;
+
     public $name;
     public $email;
     public $address;
@@ -84,6 +87,14 @@ class CheckOut extends Component
                     ];
 
                     $product->update($data);
+
+                    $this->alert('success', 'Ordered Successfully!', [
+                        'position' => 'center',
+                        'toast' => true,
+                        'showConfirmButton' => true,
+                        'onConfirmed' => 'confirmed',
+                        'confirmButtonText' => '<a href="/profile">Go To Your Profile</a>',
+                    ]);
                 }
             }
             if(!empty($error)){
