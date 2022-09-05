@@ -4,10 +4,13 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Product;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Cart;
 
 class ShowCart extends Component
 {
+    use LivewireAlert;
+
     public $delete;
     public $selectedProduct;
     public $currentProductId;
@@ -39,6 +42,16 @@ class ShowCart extends Component
             // $this->emit('getCurrentProduct', $this->selectedProduct);
 
             Cart::session($userId)->remove($this->selectedProduct);
+
+            $this->alert('info','Removed from cart!', [
+                'position' => 'top',
+                'timer' => 5000,
+                'toast' => true,
+                'showConfirmButton' => true,
+                'onConfirmed' => '',
+                'confirmButtonText' => 'Confirm',
+                'timerProgressBar' => true,
+            ]);
         }
         if($action == 'Increment'){
 
