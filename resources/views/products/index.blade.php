@@ -3,14 +3,14 @@
         <button 
             @click="activeTab = 1"
             class="w-32 py-1 rounded"
-            :class="activeTab == 1 ? 'bg-primary text-gray-100' : 'hover:text-primary'"
+            :class="activeTab == 1 ? 'bg-violet-900 text-gray-100' : 'hover:text-primary'"
         >
             {{ __('Shirt') }}
         </button>
         <button 
             @click="activeTab = 2"
             class="w-32 py-1 rounded"
-            :class="activeTab == 2 ? 'bg-primary text-gray-100' : 'hover:text-primary'"
+            :class="activeTab == 2 ? 'bg-violet-900 text-gray-100' : 'hover:text-primary'"
         >
             {{ __('Etc') }}
         </button>

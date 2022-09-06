@@ -6,10 +6,11 @@ use Livewire\Component;
 use App\Models\User;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\Hash;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Users extends Component
 {
-    use WithPagination;
+    use WithPagination, LivewireAlert;
     public $action;
     public $searchTerm;
     public $viewModal;
@@ -76,6 +77,15 @@ class Users extends Component
         }
         
         User::destroy($this->selectedUser);
+        $this->alert('success', 'User Has Been Deleted!', [
+            'position' => 'top',
+            'timer' => '5000',
+            'toast' => true,
+            'showConfirmButton' => true,
+            'onConfirmed' => '',
+            'timerProgressBar' => true,
+            'confirmButtonText' => 'Confirm',
+        ]);
         $this->dispatchBrowserEvent('close-modal');
     }
 

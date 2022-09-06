@@ -40,8 +40,8 @@
                 {{ $footer }}
                 <div class="relative">
                     <div class="text-center p-6 bg-black fixed inset-x-0 bottom-0">
-                        <span class="text-gray-600" >© 2021 Copyright:</span>
-                        <a class="text-gray-600 font-semibold" href="/">Klight Apparel & Clothing</a>
+                        <span class="text-violet-500" >© 2021 Copyright:</span>
+                        <a class="text-violet-500 font-semibold" href="/">Klight Apparel & Clothing</a>
                     </div>
                 </div>
             </footer>

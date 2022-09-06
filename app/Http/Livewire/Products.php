@@ -5,10 +5,11 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Product;
 use Livewire\WithPagination;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Products extends Component
 {
-    use WithPagination;
+    use WithPagination,  LivewireAlert;
     
     public $searchTerm;
     public $viewModal;
@@ -75,6 +76,15 @@ class Products extends Component
         }
 
         Product::destroy($this->selectedProduct);
+        $this->alert('success', 'Product Has Been Deleted!', [
+            'position' => 'bottom-end',
+            'timer' => '5000',
+            'toast' => true,
+            'showConfirmButton' => true,
+            'onConfirmed' => '',
+            'timerProgressBar' => true,
+            'confirmButtonText' => 'Confirm',
+        ]);
         $this->dispatchBrowserEvent('close-modal');
     }
     

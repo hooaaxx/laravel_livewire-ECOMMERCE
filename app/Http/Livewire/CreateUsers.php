@@ -8,10 +8,11 @@ use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Hash;
 use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Storage;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class CreateUsers extends Component
 {
-    use WithFileUploads;
+    use WithFileUploads, LivewireAlert;
 
     public $iteration;
     public $role_id;
@@ -166,6 +167,15 @@ class CreateUsers extends Component
             }
 
             $modelUpdate->update($data);
+            $this->alert('success', 'User Has Been Edited!', [
+                'position' => 'top',
+                'timer' => '5000',
+                'toast' => true,
+                'showConfirmButton' => true,
+                'onConfirmed' => '',
+                'timerProgressBar' => true,
+                'confirmButtonText' => 'Confirm',
+            ]);
         } else {
             if(!$this->modelId){
                 $this->validate([
@@ -174,6 +184,15 @@ class CreateUsers extends Component
             }
 
             User::create($data);
+            $this->alert('success', 'User Has Been Created!', [
+                'position' => 'top',
+                'timer' => '5000',
+                'toast' => true,
+                'showConfirmButton' => true,
+                'onConfirmed' => '',
+                'timerProgressBar' => true,
+                'confirmButtonText' => 'Confirm',
+            ]);
         }
 
         $this->emit('refreshParent');

@@ -235,7 +235,7 @@
                         <span class="text-sm text-gray-600">(143 Reviews)</span>
                     </div> --}}
                     <div class="mt-4 space-x-2 text-center lg:text-left">
-                        <span class="text-3xl text-primary font-bold">&#8369;{{ $product->price }}</span>
+                        <span class="text-3xl text-violet-900 font-bold">&#8369;{{ $product->price }}</span>
                     </div>
                     <div class="mt-4 text-sm text-center lg:text-left">
                         <span>Available: </span>
@@ -289,7 +289,7 @@
                             </div>
                             <button
                                 wire:click="addToCart"
-                                class="bg-primary hover:bg-primary-dark text-gray-100 flex items-center px-3 py-2 rounded text-sm space-x-2"
+                                class="bg-violet-900 hover:bg-violet-500 text-gray-100 flex items-center px-3 py-2 rounded text-sm space-x-2"
                                 title="Add To Cart"
                             >
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
