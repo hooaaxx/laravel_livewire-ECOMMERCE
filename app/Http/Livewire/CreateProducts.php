@@ -7,10 +7,11 @@ use App\Models\Product;
 use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Storage;
 use Livewire\WithFileUploads;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class CreateProducts extends Component
 {
-    use WithFileUploads;
+    use WithFileUploads, LivewireAlert;
 
     public $iteration;
     public $category;
@@ -131,8 +132,26 @@ class CreateProducts extends Component
             }
 
             $modelUpdate->update($data);
+            $this->alert('success', 'Product Has Been Edited!', [
+                'position' => 'bottom-end',
+                'timer' => '5000',
+                'toast' => true,
+                'showConfirmButton' => true,
+                'onConfirmed' => '',
+                'timerProgressBar' => true,
+                'confirmButtonText' => 'Confirm',
+            ]);
         } else {
             Product::create($data);
+            $this->alert('success', 'Product Has Been Listed!', [
+                'position' => 'bottom-end',
+                'timer' => '5000',
+                'toast' => true,
+                'showConfirmButton' => true,
+                'onConfirmed' => '',
+                'timerProgressBar' => true,
+                'confirmButtonText' => 'Confirm',
+            ]);
         }
 
         $this->emit('refreshParent');
