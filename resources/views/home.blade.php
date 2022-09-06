@@ -89,7 +89,7 @@
                     <div class="flex flex-col items-center justify-center space-y-1">
                         <a href="{{ route('products.show', $shirt->id) }}" class="text-gray-900 hover:text-primary">{{ $shirt->product_name }}</a>
                         
-                        <span class="text-xl text-primary font-bold">&#8369;{{ $shirt->price }}</span>
+                        <span class="text-xl text-violet-900 font-bold">&#8369;{{ $shirt->price }}</span>
                     </div>
                 </div>
                 @endforeach
